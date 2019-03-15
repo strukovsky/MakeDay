@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
@@ -21,6 +22,12 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         val timetable = data[position]
         holder.name.setText(timetable.name)
         holder.description.setText(timetable.description)
+        val actions = timetable.actions.values
+        holder.actions.adapter = ArrayAdapter<String>(holder.itemView.context,
+                android.R.layout.simple_list_item_1,
+                actions.toTypedArray())
+
+
     }
 
     private var data =  ArrayList<Timetable>()
@@ -34,6 +41,7 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
     public fun setData(timetables: ArrayList<Timetable>)
     {
         data = timetables
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -47,5 +55,6 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         val name: EditText = itemView.findViewById(R.id.name)
         val description: EditText = itemView.findViewById(R.id.description)
         val delete: ImageView = itemView.findViewById(R.id.delete)
+        val actions: ListView = itemView.findViewById(R.id.actions)
     }
 }

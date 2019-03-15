@@ -4,6 +4,8 @@ import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
+import java.lang.StringBuilder
+import java.util.*
 
 /**
  * Created by dmitry on 14.03.2019.
@@ -16,17 +18,18 @@ import android.arch.persistence.room.Query
     @Query("SELECT * FROM timetables")
     abstract fun getAllTimetables(): LiveData<ArrayList<Timetable>>
 
+
     @Query("DELETE * FROM timetables")
     abstract fun deleteAllTimetables()
 
-    @Query("SELECT * FROM actions WHERE timetable_id = :timetable_id")
-    abstract fun selectActions(timetable_id: Int): LiveData<ArrayList<Action>>
+    @Query("SELECT * FROM actions WHERE timetable_id = :timetable_id AND time= :time")
+    abstract fun selectActions(timetable_id: Int, time: String): LiveData<ArrayList<Action>>
 
 }
 
 @Dao abstract class ActionDao
 {
-    @Insert abstract fun insert(t: Timetable)
+    @Insert abstract fun insert(t: Action)
 
     @Query("SELECT * FROM actions")
     abstract fun getAllActions(): LiveData<ArrayList<Action>>

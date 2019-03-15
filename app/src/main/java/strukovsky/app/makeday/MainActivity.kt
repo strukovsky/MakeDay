@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         val viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
-        viewModel.getAllTimetables().observe(this,
+        val data = viewModel.getAllTimetables()
+        viewModel.applyActionsInTimetables(data)
+        data.observe(this,
                 Observer<ArrayList<Timetable>> { t -> adapter.setData(t!!)
 
         }
