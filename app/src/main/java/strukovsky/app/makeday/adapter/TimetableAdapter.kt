@@ -31,9 +31,9 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         return data.size
     }
 
-    public fun setData(timetables: ArrayList<Timetable>)
+    public fun setData(timetables: List<Timetable>)
     {
-        data = timetables
+        data = ArrayList(timetables)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

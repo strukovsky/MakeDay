@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
         viewModel.getAllTimetables().observe(this,
-                Observer<ArrayList<Timetable>> { t -> adapter.setData(t!!)
+                Observer<List<Timetable>> { t -> adapter.setData(t!!)
 
         }
         )

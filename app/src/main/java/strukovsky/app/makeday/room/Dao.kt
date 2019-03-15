@@ -14,13 +14,13 @@ import android.arch.persistence.room.Query
     @Insert abstract fun insert(t: Timetable)
 
     @Query("SELECT * FROM timetables")
-    abstract fun getAllTimetables(): LiveData<ArrayList<Timetable>>
+    abstract fun getAllTimetables(): LiveData<List<Timetable>>
 
-    @Query("DELETE * FROM timetables")
-    abstract fun deleteAllTimetables()
+    /*@Query("DELETE * FROM timetables")
+    abstract fun deleteAllTimetables()*/
 
     @Query("SELECT * FROM actions WHERE timetable_id = :timetable_id")
-    abstract fun selectActions(timetable_id: Int): LiveData<ArrayList<Action>>
+    abstract fun selectActions(timetable_id: Int): LiveData<List<Action>>
 
 }
 
@@ -29,12 +29,12 @@ import android.arch.persistence.room.Query
     @Insert abstract fun insert(t: Timetable)
 
     @Query("SELECT * FROM actions")
-    abstract fun getAllActions(): LiveData<ArrayList<Action>>
+    abstract fun getAllActions(): LiveData<List<Action>>
 
-    @Query("DELETE * FROM actions")
-    abstract fun deleteAllActions()
+    /*@Query("DELETE * FROM actions")
+    abstract fun deleteAllActions()*/
 
     @Query("SELECT * FROM actions WHERE timetable_id = :timetable_id AND time = :time")
-    abstract fun selectActions(timetable_id: Int, time: String): LiveData<ArrayList<Action>>
+    abstract fun selectActions(timetable_id: Int, time: String): LiveData<List<Action>>
 
 }

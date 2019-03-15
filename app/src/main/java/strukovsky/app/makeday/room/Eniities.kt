@@ -12,14 +12,12 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "timetables")
 data class Timetable(@PrimaryKey var id: Int,
                      @ColumnInfo(name = "name") var name: String,
-                     @ColumnInfo(name = "name") var description: String
+                     @ColumnInfo(name = "description") var description: String
 
 )
 
-@Entity(tableName = "actions", foreignKeys = arrayOf(
-        ForeignKey(entity = Timetable::class, parentColumns = arrayOf("id"),
-                childColumns = arrayOf("timetable_id"))
-))
+@Entity(tableName = "actions"
+)
 data class Action(@PrimaryKey var id: Int,
                   @ColumnInfo(name = "timetable_id") var timetable_id: Int,
                   @ColumnInfo(name = "name") var name: String,
