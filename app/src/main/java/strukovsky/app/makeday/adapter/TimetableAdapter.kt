@@ -22,7 +22,10 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         val timetable = data[position]
         holder.name.setText(timetable.name)
         holder.description.setText(timetable.description)
-        
+        holder.itemView.setOnClickListener { l->{
+
+        }
+        }
     }
 
     private var data =  ArrayList<Timetable>()
