@@ -22,7 +22,7 @@ import android.arch.persistence.room.Query
 
 @Dao abstract class ActionDao
 {
-    @Insert abstract fun insert(t: Timetable)
+    @Insert abstract fun insert(a: Action)
 
     @Query("SELECT * FROM actions")
     abstract fun getAllActions(): LiveData<List<Action>>
