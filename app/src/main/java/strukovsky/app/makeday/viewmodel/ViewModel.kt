@@ -18,30 +18,12 @@ class ViewModel(application: Application): AndroidViewModel(application)
 {
     private val repository = Repository(application.applicationContext)
 
-    fun getAllTimetables() = AsyncGetAllTimetables().execute(repository).get()!!
-    fun getAllActions() = AsyncGetAllActions().execute(repository).get()!!
-    fun selectActions(timetable_id: Int, time: String) = AsyncSelectActions(timetable_id, time).execute(repository).get()!!
+    fun getAllTimetables() = repository.getAllTimetables()
+    fun getAllActions() = repository.getAllActions()
+    fun selectActions(timetable_id: Int, time: String) = repository.selectActions(timetable_id, time)
 
-    class AsyncGetAllTimetables: AsyncTask<Repository, Unit, LiveData<List<Timetable>>>()
-    {
-        override fun doInBackground(vararg repo: Repository): LiveData<List<Timetable>> {
-            return repo[0].getAllTimetables()
-        }
-    }
 
-    class AsyncGetAllActions: AsyncTask<Repository, Unit, LiveData<List<Action>>>(){
-        override fun doInBackground(vararg repo: Repository): LiveData<List<Action>> {
-            return repo[0].getAllActions()
-        }
-    }
 
-    class AsyncSelectActions(val timetable_id: Int,val time: String): AsyncTask<Repository, Unit, LiveData<List<Action>>>()
-    {
-        override fun doInBackground(vararg repo: Repository): LiveData<List<Action>> {
-            return repo[0].selectActions(timetable_id, time)
-        }
-
-    }
 
 
 
