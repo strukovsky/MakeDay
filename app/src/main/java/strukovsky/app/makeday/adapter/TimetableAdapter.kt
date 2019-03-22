@@ -37,7 +37,7 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.timetable, parent)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.timetable, parent, false)
 
         return ViewHolder(view)
     }
