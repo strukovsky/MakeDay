@@ -8,9 +8,4 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.TextView">
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">16pt</item>
-    </style>
-
 </resources>
