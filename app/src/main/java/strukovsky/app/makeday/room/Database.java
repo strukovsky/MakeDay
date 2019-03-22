@@ -8,7 +8,7 @@ import android.content.Context;
  * Created by dmitry on 14.03.2019.
  */
 
-@android.arch.persistence.room.Database(entities = {Timetable.class, Action.class}, version = 1)
+@android.arch.persistence.room.Database(entities = {Timetable.class, Action.class}, version = 2)
 public abstract class Database extends RoomDatabase{
     private static Database instance = null;
 
