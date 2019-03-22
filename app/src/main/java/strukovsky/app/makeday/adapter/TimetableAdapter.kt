@@ -22,10 +22,13 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         holder.name.setText(timetable.name)
         holder.description.setText(timetable.description)
 <<<<<<< HEAD
+<<<<<<< HEAD
         holder.itemView.setOnClickListener { l->{
 
         }
         }
+=======
+>>>>>>> parent of ba9a97b... create view of timetable
 =======
 >>>>>>> parent of ba9a97b... create view of timetable
     }
