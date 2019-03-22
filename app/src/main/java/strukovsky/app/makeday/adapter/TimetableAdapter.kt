@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.ListView
+import android.widget.TextView
 import strukovsky.app.makeday.R
 import strukovsky.app.makeday.room.Timetable
 
@@ -21,6 +22,7 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         val timetable = data[position]
         holder.name.setText(timetable.name)
         holder.description.setText(timetable.description)
+        
     }
 
     private var data =  ArrayList<Timetable>()
@@ -44,8 +46,8 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     {
-        val name: EditText = itemView.findViewById(R.id.name)
-        val description: EditText = itemView.findViewById(R.id.description)
+        val name: TextView = itemView.findViewById(R.id.name)
+        val description: TextView = itemView.findViewById(R.id.description)
         val delete: ImageView = itemView.findViewById(R.id.delete)
     }
 }
