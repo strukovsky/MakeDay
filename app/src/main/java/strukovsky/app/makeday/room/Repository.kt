@@ -12,9 +12,7 @@ class Repository(context: Context)
     val timetableDao = database.timetableDao
     val actionDao = database.actionDao
 
-    /*
-    TODO: AsyncTasks
-     */
+
     fun getAllTimetables() = timetableDao.getAllTimetables()
     fun getAllActions() = actionDao.getAllActions()
     fun selectActions(timetable_id: Int, time: String) = actionDao.selectActions(timetable_id, time)
