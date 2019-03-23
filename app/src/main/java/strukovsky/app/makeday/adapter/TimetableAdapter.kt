@@ -21,11 +21,20 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
 {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val timetable = data[position]
+
         holder.name.text = timetable.name
         holder.description.text = timetable.description
         holder.itemView.setOnClickListener { view -> {
             val intent =  Intent()
         } }
+
+        holder.name.setText(timetable.name)
+        holder.description.setText(timetable.description)
+        holder.itemView.setOnClickListener { l->{
+
+        }
+        }
+
     }
 
     private var data =  ArrayList<Timetable>()
@@ -42,7 +51,7 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.timetable, parent)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.timetable, parent, false)
 
         return ViewHolder(view)
     }
