@@ -17,20 +17,21 @@
             />
     </LinearLayout>
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/name"
-        android:hint="@string/name"
+        android:theme="@style/AppTheme.TextView"
+
         />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
         android:id="@+id/description"
-        android:hint="@string/description"
-        />
+        android:theme="@style/AppTheme.TextView"
+
+    />
 
 
 
