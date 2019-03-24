@@ -1,23 +1,29 @@
 package strukovsky.app.makeday.adapter
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import strukovsky.app.makeday.ActionsActivity
+import strukovsky.app.makeday.HOUR
 import strukovsky.app.makeday.R
+import strukovsky.app.makeday.TIMETABLE_ID
 import strukovsky.app.makeday.room.Action
 import java.lang.StringBuilder
 
-class HourAdapter : RecyclerView.Adapter<HourAdapter.HolderView>() {
+class HourAdapter(val timetableId: Int) : RecyclerView.Adapter<HourAdapter.HolderView>() {
     override fun onBindViewHolder(holder: HolderView, position: Int) {
         val hour = position.toString() + ":00"
         holder.time.text = hour
-        holder.actions.text = makeStringOfActions(hour)
-        holder.itemView.setOnClickListener {
-            view ->
-            {
-
+        holder.actions.text = makeStringOfActions(position.toString())
+        holder.itemView.setOnClickListener { _ ->
+            run {
+                val intent = Intent(holder.itemView.context, ActionsActivity::class.java)
+                intent.putExtra(TIMETABLE_ID, timetableId)
+                intent.putExtra(HOUR, position)
+                holder.itemView.context.startActivity(intent)
             }
         }
     }
@@ -41,15 +47,17 @@ class HourAdapter : RecyclerView.Adapter<HourAdapter.HolderView>() {
         return result.toString()
     }
 
-    val data = ArrayList<Action>()
+    var data = ArrayList<Action>()
 
-    override fun getItemCount(): Int {
-        return 24
-    }
+    override fun getItemCount() = 24
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolderView {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.hour, parent, false)
         return HolderView(view)
+    }
+
+    fun setData(item: List<Action>) {
+        data = ArrayList(item)
     }
 
 

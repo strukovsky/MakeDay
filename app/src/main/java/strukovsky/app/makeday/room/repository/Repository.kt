@@ -22,7 +22,9 @@ class Repository(context: Context) {
     fun getAllTimetables() = AsyncGetAllTimetables(timetableDao).execute().get()!!
     fun getAllActions() = AsyncGetAllActions(actionDao).execute().get()!!
     fun selectActions(timetable_id: Int, time: String) = AsyncSelectActions(actionDao, timetable_id, time).execute().get()!!
-    
+    fun selectActionsByTimetable(timetableId: Int) = AsyncSelectActionsByTimetable(actionDao, timetableId).execute().get()!!
+
+
     //update
     fun updateTimetable(timetable: Timetable) = AsyncUpdateTimetable(timetableDao, timetable).execute()
     fun updateAction(action: Action) = AsyncUpdateAction(actionDao, action).execute()
@@ -30,14 +32,6 @@ class Repository(context: Context) {
     //delete
     fun deleteTimetable(timetable: Timetable) = AsyncDeleteTimetable(timetableDao, timetable).execute()
     fun deleteAction(action: Action) = AsyncDeleteAction(actionDao, action).execute()
-    
-    
-    
-
-
-
-
-
 
 
 }

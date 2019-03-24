@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import strukovsky.app.makeday.TimetableActivity
+import strukovsky.app.makeday.HoursActivity
 import strukovsky.app.makeday.R
 import strukovsky.app.makeday.room.Timetable
-import strukovsky.app.makeday.timetableId
+import strukovsky.app.makeday.TIMETABLE_ID
 
 /**
  * Created by dmitry on 14.03.2019.
@@ -25,18 +25,15 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         holder.description.text = timetable.description
         holder.itemView.setOnClickListener { view ->
             run {
-                val intent = Intent(view.context, TimetableActivity::class.java)
-                intent.putExtra(timetableId, position)
+                val intent = Intent(view.context, HoursActivity::class.java)
+                intent.putExtra(TIMETABLE_ID, position)
                 view.context.startActivity(intent)
             }
         }
 
         holder.name.text = timetable.name
         holder.description.text = timetable.description
-        holder.itemView.setOnClickListener { l->{
 
-        }
-        }
 
     }
 

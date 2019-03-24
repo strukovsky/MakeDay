@@ -1,3 +1,4 @@
 package strukovsky.app.makeday
 
-val timetableId = "timetableId"
+val TIMETABLE_ID = "TIMETABLE_ID"
+val HOUR = "HOUR"

@@ -42,4 +42,8 @@ abstract class ActionDao {
     abstract fun delete(a: Action)
 
 
+    @Query("SELECT * FROM actions WHERE timetable_id = :timetable_id")
+    abstract fun selectActionsByTimetable(timetable_id: Int): LiveData<List<Action>>
+
+
 }

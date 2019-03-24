@@ -25,3 +25,10 @@ class AsyncSelectActions(val dao: ActionDao, val timetable_id: Int, val time: St
     }
 
 }
+
+class AsyncSelectActionsByTimetable(val dao: ActionDao, val timetable_id: Int): AsyncTask<Unit, Unit, LiveData<List<Action>>>(){
+    override fun doInBackground(vararg p0: Unit?): LiveData<List<Action>> {
+        return dao.selectActionsByTimetable(timetable_id)
+    }
+
+}
