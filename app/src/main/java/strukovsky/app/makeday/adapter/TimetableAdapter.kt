@@ -1,16 +1,13 @@
 package strukovsky.app.makeday.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
-import android.widget.ListView
 import android.widget.TextView
-import strukovsky.app.makeday.HourActivity
+import strukovsky.app.makeday.TimetableActivity
 import strukovsky.app.makeday.R
 import strukovsky.app.makeday.room.Timetable
 import strukovsky.app.makeday.timetableId
@@ -28,7 +25,7 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
         holder.description.text = timetable.description
         holder.itemView.setOnClickListener { view ->
             run {
-                val intent = Intent(view.context, HourActivity::class.java)
+                val intent = Intent(view.context, TimetableActivity::class.java)
                 intent.putExtra(timetableId, position)
                 view.context.startActivity(intent)
             }
