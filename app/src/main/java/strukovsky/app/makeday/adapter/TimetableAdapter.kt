@@ -48,6 +48,7 @@ class TimetableAdapter: RecyclerView.Adapter<TimetableAdapter.ViewHolder>()
     public fun setData(timetables: List<Timetable>)
     {
         data = ArrayList(timetables)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

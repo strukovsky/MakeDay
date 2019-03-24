@@ -13,12 +13,12 @@ import strukovsky.app.makeday.TIMETABLE_ID
 import strukovsky.app.makeday.room.Action
 import java.lang.StringBuilder
 
-class HourAdapter(val timetableId: Int) : RecyclerView.Adapter<HourAdapter.HolderView>() {
+class HourAdapter(private val timetableId: Int) : RecyclerView.Adapter<HourAdapter.HolderView>() {
     override fun onBindViewHolder(holder: HolderView, position: Int) {
         val hour = position.toString() + ":00"
         holder.time.text = hour
         holder.actions.text = makeStringOfActions(position.toString())
-        holder.itemView.setOnClickListener { _ ->
+        holder.itemView.setOnClickListener {
             run {
                 val intent = Intent(holder.itemView.context, ActionsActivity::class.java)
                 intent.putExtra(TIMETABLE_ID, timetableId)
@@ -58,11 +58,12 @@ class HourAdapter(val timetableId: Int) : RecyclerView.Adapter<HourAdapter.Holde
 
     fun setData(item: List<Action>) {
         data = ArrayList(item)
+        notifyDataSetChanged()
     }
 
 
     inner class HolderView(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val time = itemView.findViewById<TextView>(R.id.time)
-        val actions = itemView.findViewById<TextView>(R.id.actions)
+        val time = itemView.findViewById<TextView>(R.id.time)!!
+        val actions = itemView.findViewById<TextView>(R.id.actions)!!
     }
 }

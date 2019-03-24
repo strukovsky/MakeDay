@@ -2,4 +2,6 @@
     <string name="app_name">MakeDay</string>
     <string name="name">Enter name</string>
     <string name="description">Description</string>
+    <string name="delete">Delete</string>
+    <string name="hint_name">Enter action</string>
 </resources>
