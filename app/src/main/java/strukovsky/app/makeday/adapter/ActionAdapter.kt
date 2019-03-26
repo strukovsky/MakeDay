@@ -19,6 +19,9 @@ class ActionAdapter(): RecyclerView.Adapter<ActionAdapter.ViewHolder>(){
         }
     }
 
+    var timetableId = 0
+    var time = "0"
+
     override fun getItemCount(): Int {
         return data.size
     }
@@ -32,8 +35,16 @@ class ActionAdapter(): RecyclerView.Adapter<ActionAdapter.ViewHolder>(){
     }
 
 
+    fun addItem()
+    {
+        data.add(Action(timetableId, "", "", time))
+        notifyItemInserted(data.size)
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.action, parent, false)
+
         return ViewHolder(view)
     }
 

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.51@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre8/1.2.51/d1f7647a1ddf962105bef532a5697b045bca372d/kotlin-stdlib-jre8-1.2.51.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre8/1.2.51/4cfe163ac44df8d1d1495381203a486d33c805f5/kotlin-stdlib-jre8-1.2.51-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

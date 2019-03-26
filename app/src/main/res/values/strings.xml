@@ -4,4 +4,6 @@
     <string name="description">Description</string>
     <string name="delete">Delete</string>
     <string name="hint_name">Enter action</string>
+    <string name="add_action">Add action</string>
+    <string name="save_action">Save actions</string>
 </resources>
